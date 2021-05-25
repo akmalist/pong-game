@@ -6,10 +6,17 @@ class Ball(Turtle):
         super().__init__()
         self.shape("circle")
         self.color("white")
+        self.move_y = 30
+        self.move_x = 30
 
     def move(self):
-        for _ in range(50):
-            new_x = self.xcor() + 1
-            new_y = self.ycor() + 1
-            self.penup()
-            self.goto(new_x, new_y)
+        new_x = self.xcor() + self.move_x
+        new_y = self.ycor() + self.move_y
+        self.penup()
+        self.goto(new_x, new_y)
+
+    def bounce_y(self):
+        self.move_y *= -1
+
+    def bounce_x(self):
+        self.move_x *= -1
